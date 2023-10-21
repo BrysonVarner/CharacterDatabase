@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Main Menu";
+}
+<div class="text-lg-center" style="display: block">
+<h1 class="display-3" >@ViewData["Title"]</h1>
+</div>
+
+<div class="text-lg-center" style="display: block">
+    <h2 class="display-4"><a href="/Character/InsertCharacter/">Create a New Character</a></h2>
+</div>
+
+<div class="text-lg-center" style="display: block">
+    <h2 class="display-4"><a href="/Character/Index/">View All Characters</a></h2>
+</div>
+
+
+<div class="text-lg-center" style="display: block">
+    @using (Html.BeginForm("SearchForCharacter", "Character", "Post"))
+    {
+        <form asp-controller="Character" asp-action="Index" method="get">
+        <p>
+            <h2 class="display-4">Search For Characters:</h2>
+            <input type="text" name="searchParameters" />
+            <input type="submit" value="Filter" href="/Character/SearchForCharacter/" />
+        </p>
+        </form>
+    }
+    
+</div>
+

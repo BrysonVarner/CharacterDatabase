@@ -1,0 +1,194 @@
+﻿@model Character
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+   <header>
+        <h2 class="text-center">Update @Model.Name</h2>
+   </header>
+        @using (Html.BeginForm("UpdateCharacterToDatabase", "Character", "Post"))
+        {
+        <div>
+            <table align="center">
+
+                @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                {
+                    <tr>
+                        <td>
+                            @* <label asp-for="CharacterID" class="control-label">Character ID</label> *@
+                            <input asp-for="CharacterID" class="static-field" type="hidden" value="@Model.CharacterID" readonly />
+                        </td>
+
+                        <td>
+                            @* <label asp-for="UserId" class="control-label">Owner Info</label> *@
+                            <input asp-for="UserId" class="static-field" type="hidden" readonly />
+                        </td>
+                    </tr>
+                }
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <tr>
+                        <td>
+                            <label asp-for="CharacterID" class="control-label">Character ID</label>
+                            <input asp-for="CharacterID" class="static-field" type="text" value="@Model.CharacterID" readonly />
+                        </td>
+
+                        <td>
+                            <label asp-for="UserId" class="control-label">Owner Info</label>
+                            <input asp-for="UserId" class="static-field" type="text" value="@Model.UserId" readonly />
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        <label asp-for="Name" class="control-label">Name</label>
+                        <input type="text" name="Name" class="form-required" placeholder="Name" required value="@Model.Name" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Species" class="control-label">Species</label>
+                        <input type="text" name="Species" class="form-required" placeholder="Species" required value="@Model.Species" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Gender" class="control-label">Gender</label>
+                        <input type="text" name="Gender" class="form-required" placeholder="Gender" required value="@Model.Gender" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label asp-for="Speed" class="control-label">Speed</label>
+                        <input type="number" name="Speed" class="form-required" required value="@Model.Speed" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Height" class="control-label">Height</label>
+                        <input type="text" name="Height" class="form-control" value="@Model.Height" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Weight" class="control-label">Weight</label>
+                        <input type="number" name="Weight" class="form-control" value="@Model.Weight" />
+                    </td>
+
+                    
+                </tr>
+
+                <tr>
+                    <td>
+                        <label asp-for="HairColor" class="control-label">Hair Color</label>
+                        <input type="text" name="HairColor" class="form-control" placeholder="Hair Color" value="@Model.HairColor" />
+                    </td>
+
+                    <td>
+                        <label asp-for="EyeColor" class="control-label">Eye Color</label>
+                        <input type="text" name="EyeColor" class="form-control" placeholder="Eye Color" value="@Model.EyeColor" />
+                    </td>
+                    <td>
+                        <label asp-for="Age" class="control-label">Age</label>
+                        <input type="number" name="Age" class="form-control" value="@Model.Age" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label asp-for="Class1" class="control-label">Class 1</label>
+                        <input type="text" name="Class1" class="form-required" placeholder="Class 1" required value="@Model.Class1" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Subclass1" class="control-label">Subclass 1</label>
+                        <input type="text" name="Subclass1" class="form-control" placeholder="Subclass 1" value="@Model.Subclass1" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Class1Level" class="control-label">Class 1 Level</label>
+                        <input type="number" step="1" name="Class1Level" class="form-required" required value="@Model.Class1Level" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label asp-for="Class2" class="control-label">Class 2</label>
+                        <input type="text" name="Class2" class="form-control" placeholder="Class 2" value="@Model.Class2" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Subclass2" class="control-label">Subclass 2</label>
+                        <input type="text" name="Subclass2" class="form-control" placeholder="Subclass 2" value="@Model.Subclass2" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Class2Level" class="control-label">Class 2 Level</label>
+                        <input type="number" step="1" name="Class2Level" class="form-control" value="@Model.Class2Level" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label asp-for="Class3" class="control-label">Class 3</label>
+                        <input type="text" name="Class3" class="form-control" placeholder="Class 3" value="@Model.Class3" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Subclass3" class="control-label">Subclass 3</label>
+                        <input type="text" name="Subclass3" class="form-control" placeholder="Subclass 3" value="@Model.Subclass3" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Class3Level" class="control-label">Class 3 Level</label>
+                        <input type="number" step="1" name="Class3Level" class="form-control" value="@Model.Class3Level" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label asp-for="Strength" class="control-label">Strength</label>
+                        <input type="number" name="Strength" class="form-required" required value="@Model.Strength" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Dexterity" class="control-label">Dexterity</label>
+                        <input type="number" name="Dexterity" class="form-required" required value="@Model.Dexterity" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Constitution" class="control-label">Constitution</label>
+                        <input type="number" name="Constitution" class="form-required" required value="@Model.Constitution" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label asp-for="Intelligence" class="control-label">Intelligence</label>
+                        <input type="number" name="Intelligence" class="form-required" required value="@Model.Intelligence" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Wisdom" class="control-label">Wisdom</label>
+                        <input type="number" name="Wisdom" class="form-required" required value="@Model.Wisdom" />
+                    </td>
+
+                    <td>
+                        <label asp-for="Charisma" class="control-label">Charisma</label>
+                        <input type="number" name="Charisma" class="form-required" required value="@Model.Charisma" />
+                    </td>
+                </tr>
+            </table>
+            </div>
+
+            <div>                
+                <label asp-for="CharacterNotes" class="Notes-Box">Character Notes</label>
+                <textarea id="CharacterNotes" name="CharacterNotes" rows="4" cols="50" value="@Model.CharacterNotes">            
+                </textarea>
+            </div>
+        <input align="center" type="reset" value="reset" class="btn btn-primary" /> 
+        <input align="center" type="submit" value="Update Character" class="btn btn-primary" />
+        }
+
+</body>
