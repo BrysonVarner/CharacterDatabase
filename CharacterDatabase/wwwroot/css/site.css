@@ -1,11 +1,16 @@
-html {
-  font-size: 14px;
+html {    
+    text-shadow: 1px 1px 3px red;
 }
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
+}
+
+@font-face {
+    font-family: "Calligraffitti";
+    src: url('../Fonts/Calligraffitti-Regular.ttf') format('truetype');
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -18,5 +23,232 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 30px;
+    background-image: url('../Images/gladiator.png');
+    background-size: cover;
+    
+}
+
+label {
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-control {
+    height: 37px;
+    width: 300px;
+    display: inline-block;
+    background-color: #c0c0c0;
+    margin-bottom: 1.5%;
+}
+
+.form-required {
+    height: 37px;
+    width: 300px;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    background-color: #c0c0c0;
+    margin-bottom: 1.5%;
+}
+
+.control-label-required {
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.static-field {
+    border-radius: 4px;
+    height: 37px;
+    width: 350px;
+    border: 1px solid #dddddd;
+    background-color: #c0c0c0;
+    margin-bottom: 1.5%;
+}
+
+.control-label-static {
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.form-row {
+    width: 100%;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #876e45;
+    border-color:silver;
+}
+
+.form-group {
+    border-style: outset;
+    border-color: slategray ;
+}
+
+.form-control-lg {
+    width: 400px;
+    display:block;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+textarea {
+    height: 100px;
+    width: 900px;
+    border: 1px solid #dddddd;
+    padding-top: 0;
+    padding-left: 0;
+    background-color: #c0c0c0;
+}
+
+input:focus {    
+    outline-color: #4D90FE;
+    outline-offset: 4px;
+    border: 1px solid #4D90FE;
+    border-width: 1px;
+    -webkit-box-shadow: 0px 0px 4px 0px #4D90FE;
+    box-shadow: 0 0 0 0.2em #fff;
+}
+
+textarea:focus {    
+    outline-color: #4D90FE;
+    outline-offset: 4px;
+    border: 1px solid #4D90FE;
+    border-width: 1px;
+    -webkit-box-shadow: 0px 0px 4px 0px #4D90FE;
+    box-shadow: 0 0 0 0.2em #fff;
+}
+
+.card-body {
+   
+}
+
+.card-header {
+    background-color: #694c27;
+}
+
+.card-footer {
+    background-color: #694c27;
+}
+
+.card {
+    background-image: url('../Images/DarkPaper.png');
+    background-size: cover;
+}
+
+form {
+    background-image: url(Images\DarkPaper.png);
+}
+
+a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;    
+    text-shadow: 2px 2px 5px darkred;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+    text-shadow: 2px 2px 5px darkred;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+.btn btn-primary {
+
+}
+
+.text-lg-center {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 75px;
+    font-weight: bolder;
+    border:medium;
+    color:black;
+    font-family: "Calligraffitti";
+    text-shadow: 2px 2px 5px yellowgreen;
+    padding: 10px 10px 20px 10px;
+}
+
+.input-group {
+    height: 50px;
+    margin: auto;
+    width: 500px;
+}
+
+h1 {
+    font-size: 100px;
+    font-weight: bolder;
+    border: medium;
+    color: black;
+    font-family: "Calligraffitti";
+    text-shadow: 2px 2px 5px darkred;
+    padding: 10px 10px 20px 10px;
+}
+
+h3 {
+    font-size: 50px;
+    font-weight: bolder;
+    border: medium;
+    color: black;
+    font-family: "Calligraffitti";
+    text-shadow: 2px 2px 5px darkred;
+    padding: 10px 10px 20px 10px;
+}
+
+.navbar-brand {
+    font-size: 50px;
+    font-weight: bolder;    
+    color: green;
+    font-family: 'Times New Roman';
+}
+
+.navbar {
+    height:75px;
+}
+
+#footer {
+    bottom: 0;
+    color: #707070;
+    height: 2em;
+    left: 0;
+    position: relative;
+    //changed to relative from fixed also works if position is not there font-size: small;
+    width: 100%;
+}
+
+.github-icon {
+    display: block;
+    align-self:center;
+  margin-left: auto;
+  margin-right: auto;   
+    color:black;
+    text-align:center;
 }

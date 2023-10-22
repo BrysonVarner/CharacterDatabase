@@ -1,44 +1,97 @@
 ﻿@model IEnumerable<Character>
 
-<h2 align="center">Characters</h2>
-
-<div align="center" style="display: block">
-    <a href="/Character/InsertCharacter/">Create a New Character</a>
-</div>
-
-<table  class="table">
-    <tr>        
-        <th>Name</th>
-        <th>Species</th>
-        <th>Gender</th>
-        <th>Class 1</th>
-        <th>Subclass 1</th>
-        <th>Class 1 Level</th>
-        <th>Class 2</th>
-        <th>Subclass 2</th>
-        <th>Class 2 Level</th>
-        <th>Class 3</th>
-        <th>Subclass 3</th>
-        <th>Class 3 Level</th>
-    </tr>
+<div class="card">
+    <div class="card-header">
+        <h1 align="center">All Characters</h1>
+    </div>
+    <div align="center" style="display: block">
+        <a href="/Character/InsertCharacter/">Create a New Character</a>
+    </div>
+    <div class="form-row" align="center">
+        <div class="form-group col">
+            Name
+        </div>
+        <div class="form-group col" >
+            Species
+        </div>
+        <div class="form-group col" >
+            Gender
+        </div>
+        <div class="form-group col" >
+            Class
+        </div>
+        <div class="form-group col" >
+            Subclass
+        </div>
+        <div class="form-group col" >
+            Class Level
+        </div>
+    </div>
 
     @foreach (var character in Model)
     {
-        <tr>            
-            <td><a href=/Character/ViewCharacter/@character.CharacterID>@character.Name</td>
-            <td>@character.Species</td>
-            <td>@character.Gender</td>
-            <td>@character.Class1</td>
-            <td>@character.Subclass1</td>
-            <td>@character.Class1Level</td>
-            <td>@character.Class2</td>
-            <td>@character.Subclass2</td>
-            <td>@character.Class2Level</td>
-            <td>@character.Class3</td>
-            <td>@character.Subclass3</td>
-            <td>@character.Class3Level</td>
+        <div class="card-body">
 
-        </tr>
+            <div class="form-row" align="center">
+                <div class="form-group col">
+                    <h5><a href="/Character/ViewCharacter/@character.CharacterID">@character.Name</a></h5>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Species</a>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Gender</a>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Class1</a>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Subclass1</a>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Class1Level</a>
+                </div>
+            </div>
+            <div class="form-row" align="center">
+                <div class="form-group col">
+                    </div>
+                <div class="form-group col">
+                </div>
+                <div class="form-group col">
+                </div>
+                <div class="form-group col">
+                    <a>@character.Class2</a>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Subclass2</a>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Class2Level</a>
+                </div>
+            </div>
+            <div class="form-row" align="center">
+                <div class="form-group col">
+                </div>
+                <div class="form-group col">
+                </div>
+                <div class="form-group col">
+                </div>
+                <div class="form-group col">
+                    <a>@character.Class3</a>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Subclass3</a>
+                </div>
+                <div class="form-group col">
+                    <a>@character.Class3Level</a>
+                </div>
+            </div>
+        </div> 
     }
+</div>
 
-</table>
+
+
+    
+
+

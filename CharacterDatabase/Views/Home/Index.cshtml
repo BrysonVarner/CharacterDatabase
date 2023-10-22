@@ -1,17 +1,22 @@
 ﻿
 @{
-    ViewData["Title"] = "Main Menu";
+    ViewData["Title"] = "Main Menu:";
 }
 <div class="text-lg-center" style="display: block">
-<h1 class="display-3" >@ViewData["Title"]</h1>
+<h1>@ViewData["Title"]</h1>
 </div>
 
 <div class="text-lg-center" style="display: block">
-    <h2 class="display-4"><a href="/Character/InsertCharacter/">Create a New Character</a></h2>
+    <a href="/Character/InsertCharacter/">
+    <h2>Create a New Character</h2>
+    </a>
 </div>
 
 <div class="text-lg-center" style="display: block">
-    <h2 class="display-4"><a href="/Character/Index/">View All Characters</a></h2>
+    <a href="/Character/Index/">
+    <h2>View All Characters</h2>
+    
+    </a>
 </div>
 
 
@@ -20,12 +25,19 @@
     {
         <form asp-controller="Character" asp-action="Index" method="get">
         <p>
-            <h2 class="display-4">Search For Characters:</h2>
-            <input type="text" name="searchParameters" />
-            <input type="submit" value="Filter" href="/Character/SearchForCharacter/" />
+            <h2>Search For Characters:</h2>
+          
+                <div class="input-group">
+                    <input type="search" class="form-control rounded" name="searchParameters" placeholder="Search All Characters" href="/Character/SearchForCharacter/" aria-label="Search" aria-describedby="search-addon" />
+                   
+                </div>            
         </p>
         </form>
-    }
-    
+
+    }  
 </div>
+<details style="font-size: 28px; -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black; color:yellowgreen; text-shadow: 3px 3px 8px yellowgreen; padding:10px 10px 70px 10px;" align="center">
+    (search terms with commas for multiple terms)
+</details>
 

@@ -46,7 +46,7 @@
             }
         </div>
         <div class="card-footer">
-            <a asp-controller="Admin" asp-action="EditUsersInRole" asp-route-roleId="@Model.Users" class="btn btn-primary" style="width:auto">Edit Users</a>
+            <a asp-area="Admin" asp-controller="Admin" asp-action="EditUsersInRole" asp-route-roleId="@Model.Id" class="btn btn-primary" style="width:auto">Edit Users</a>
         </div>
     </div>
 </form>
