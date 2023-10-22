@@ -23,13 +23,11 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <div class="form-row">
-                        <div class="form-group col">
-                            @* <label asp-for="CharacterID" class="control-label">Character ID</label> *@
+                        <div class="form-group col">                            
                             <input asp-for="CharacterID" class="static-field" type="hidden" value="@Model.CharacterID" readonly />
                         </div>
 
-                        <div class="form-group col">
-                            @* <label asp-for="UserId" class="control-label">Owner Info</label> *@
+                        <div class="form-group col">                           
                             <input asp-for="UserId" class="static-field" type="hidden" value="@usr.Id" readonly />
                         </div>
                     </div>
