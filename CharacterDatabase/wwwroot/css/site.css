@@ -222,17 +222,7 @@ h3 {
     text-shadow: 2px 2px 5px darkred;
     padding: 10px 10px 20px 10px;
 }
-
-.navbar-brand {
-    font-size: 50px;
-    font-weight: bolder;    
-    color: green;
-    font-family: 'Times New Roman';
-}
-
-.navbar {
-    height:75px;
-}
+ 
 
 #footer {
     bottom: 0;
