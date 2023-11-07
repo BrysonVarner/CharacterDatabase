@@ -103,11 +103,11 @@ namespace CharacterDatabase.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
-            //[Required]
-            //public string UserRole { get; set; } = "User";
+            [Required]
+            public string UserRole { get; set; } = "User";
 
-            //[Display(Name = "Role")]
-            //public string RoleId { get; set; }
+            [Display(Name = "Role")]
+            public string RoleId { get; set; }
         }
 
 
@@ -125,7 +125,7 @@ namespace CharacterDatabase.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                //await _userManager.AddToRoleAsync(user, "User");
+                await _userManager.AddToRoleAsync(user, "User");
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);

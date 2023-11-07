@@ -11,7 +11,7 @@ using System.Data;
 
 namespace CharacterDatabase.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles="Admin")]
     public class AdminController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -89,7 +89,7 @@ namespace CharacterDatabase.Controllers
             };
 
             // Retrieve all the Users
-            foreach (var user in _userManager.Users)
+            foreach (var user in _userManager.Users.ToList())
             {
                 // If the user is in this role, add the username to
                 // Users property of EditRoleViewModel. This model
@@ -151,7 +151,7 @@ namespace CharacterDatabase.Controllers
 
             var model = new List<UserRoleViewModel>();
 
-            foreach (var user in _userManager.Users)
+            foreach (var user in _userManager.Users.ToList())
             {
                 var userRoleViewModel = new UserRoleViewModel
                 {
