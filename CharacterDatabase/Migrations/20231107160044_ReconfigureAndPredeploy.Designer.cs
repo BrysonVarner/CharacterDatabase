@@ -4,16 +4,19 @@ using CharacterDatabase.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CharacterDatabase.Data.Migrations
+namespace CharacterDatabase.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231107160044_ReconfigureAndPredeploy")]
+    partial class ReconfigureAndPredeploy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,11 +27,11 @@ namespace CharacterDatabase.Data.Migrations
 
             modelBuilder.Entity("CharacterDatabase.Models.Character", b =>
                 {
-                    b.Property<int>("CharacterID")
+                    b.Property<long>("CharacterID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CharacterID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("CharacterID"));
 
                     b.Property<int?>("Age")
                         .HasColumnType("int");
@@ -132,7 +135,7 @@ namespace CharacterDatabase.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Characters", (string)null);
+                    b.ToTable("Characters");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

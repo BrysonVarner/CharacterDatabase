@@ -56,8 +56,14 @@ namespace CharacterDatabase.Controllers
         }
         public IActionResult UpdateCharacterToDatabase(Character character)
         {
-            _characterService.UpdateCharacter(character);
+            if (ModelState.IsValid)
+            {
+                _characterService.UpdateCharacter(character);
+                
+            }
+
             return RedirectToAction("ViewCharacter", new { id = character.CharacterID });
+
         }
         public IActionResult InsertCharacter()
         {

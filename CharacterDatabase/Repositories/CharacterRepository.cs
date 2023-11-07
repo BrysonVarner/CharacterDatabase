@@ -26,7 +26,7 @@ namespace CharacterDatabase
         public void UpdateCharacter(Character character)
         {
             _conn.Execute("UPDATE characters SET" +
-                " Name = @name," +
+                " name = @name," +
                 " species = @species," +
                 " gender = @gender," +
                 " class1 = @class1," +
@@ -50,6 +50,7 @@ namespace CharacterDatabase
                 " wisdom = @wisdom," +
                 " charisma = @charisma," +
                 " characternotes = @characternotes," +
+                " userid = @userid," +
                 " lastupdated = @lastupdated WHERE CharacterID = @id",
             new
             {
@@ -78,6 +79,7 @@ namespace CharacterDatabase
                 charisma = character.Charisma,
                 characternotes = character.CharacterNotes,
                 lastupdated = character.LastUpdated,
+                userid = character.UserId,
                 id = character.CharacterID,
             });
         }

@@ -16,6 +16,21 @@
             <div class="card-body">
                 <div class="form-row" align="center">
 
+                    
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label asp-for="CharacterID" class="control-label-static">Character ID</label>
+                                <input asp-for="CharacterID" class="static-field" type="text" value="@Model.CharacterID" />
+                            </div>
+
+                            <div class="form-group col">
+                                <label asp-for="UserId" class="control-label-static">User ID</label>
+                                <input type="text" name="UserId" class="form-control" autocomplete="off" value="@Model.UserId" />
+                            </div>
+                        </div>
+                    }
                     @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
                     {
                         <div class="form-row">
@@ -27,20 +42,6 @@
                             <div class="form-group col">
                                 @* <label asp-for="UserId" class="control-label">Owner Info</label> *@
                                 <input asp-for="UserId" class="static-field" type="hidden" readonly />
-                            </div>
-                        </div>
-                    }
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <label asp-for="CharacterID" class="control-label-static">Character ID</label>
-                                <input asp-for="CharacterID" class="static-field" type="text" value="@Model.CharacterID" readonly />
-                            </div>
-
-                            <div class="form-group col">
-                                <label asp-for="UserId" class="control-label-static">Owner Info</label>
-                                <input asp-for="UserId" class="static-field" type="text" value="@Model.UserId" readonly />
                             </div>
                         </div>
                     }
@@ -183,8 +184,8 @@
                 </div>
 
                 <div align="center">
-                    <label asp-for="CharacterNotes" class="control-label">Character Notes</label>
-                    <textarea class="form-control-lg" id="CharacterNotes" name="CharacterNotes" rows="4" value="@Model.CharacterNotes">            
+                    <label asp-for="CharacterNotes" class="control-label" data-mdb-showcounter="true" maxlength="300">Character Notes</label>
+                    <textarea class="form-control-lg" type="text" name="CharacterNotes" rows="4" value="@Model.CharacterNotes">            
                         </textarea>
                 </div>
 

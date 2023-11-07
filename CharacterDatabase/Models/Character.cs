@@ -76,27 +76,33 @@ namespace CharacterDatabase.Models
         public string? EyeColor { get; set; }
 
         [Required]
-        [Range(1, 40)]
+        [Range(1, 40,
+            ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Strength { get; set; }
 
         [Required]
-        [Range(1, 40)]
+        [Range(1, 40,
+            ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Dexterity { get; set; }
 
         [Required]
-        [Range(1, 40)]
+        [Range(1, 40,
+            ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Constitution { get; set; }
 
         [Required]
-        [Range(1, 40)]
+        [Range(1, 40,
+            ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Intelligence { get; set; }
 
         [Required]
-        [Range(1, 40)]
+        [Range(1, 40,
+            ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Wisdom { get; set; }
 
         [Required]
-        [Range(1, 40)]
+        [Range(1, 40,
+            ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Charisma { get; set; }       
         
         public string? CharacterNotes { get; set; }
