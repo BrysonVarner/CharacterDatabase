@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CharacterDatabase.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231107160044_ReconfigureAndPredeploy")]
-    partial class ReconfigureAndPredeploy
+    [Migration("20231107184936_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
