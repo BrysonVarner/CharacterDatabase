@@ -1,3 +1,11 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/centralus/connectors/DefaultConnection_D85EE5AA77",
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/characterstorage-server/databases/characterstorage-db",
+      "type": "mssql.azure",
+      "connectionId": "DefaultConnection"
+    }
+  }
 }

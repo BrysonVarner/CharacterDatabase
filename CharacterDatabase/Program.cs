@@ -8,6 +8,7 @@ using System.Data;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using System.Net;
+using Microsoft.Extensions.Hosting;
 
 namespace CharacterDatabase
 {
@@ -17,7 +18,8 @@ namespace CharacterDatabase
         {
             var builder = WebApplication.CreateBuilder(args);
             var configuration = builder.Configuration;
-                       
+
+            
 
             builder.Services.AddTransient<IDbConnection>((s) =>
             {

@@ -24,12 +24,12 @@
                                 <a class="nav-link text-light" asp-area="Character" asp-controller="Character" asp-action="UserHome" asp-route-id="">My Characters</a>
                             </li>
                         }
-                        @if (User.IsInRole("Admin"))
-                        {                            
+                        @* @if (User.IsInRole("Admin"))
+                        {  *@                           
                             <li class="nav-item">
                                 <partial name="_AdminMenuPartial" />
                             </li>
-                        }
+                        @* } *@
                     </ul> 
                     <div class="navbar-header flex-fill">
                         <h1>
