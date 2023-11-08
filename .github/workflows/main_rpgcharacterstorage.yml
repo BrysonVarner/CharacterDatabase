@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'RPGCharacterStorage'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E277171A1B944AF98B754399A0BA37CB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F5DD985BD5564ACDBB298DD92984FE18 }}
           package: .
