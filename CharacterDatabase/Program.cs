@@ -49,22 +49,22 @@ namespace CharacterDatabase
             builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
                 o.TokenLifespan = TimeSpan.FromHours(4));
 
-            builder.Services.AddAuthentication();
+            builder.Services.AddAuthentication()
 
-                //.AddGoogle(googleOptions =>
-                //{
-                //    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
-                //    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
-                //    googleOptions.AccessDeniedPath = "/Home/AccessDenied";
-                //})
+                .AddGoogle(googleOptions =>
+                {
+                    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+                    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+                    googleOptions.AccessDeniedPath = "/Home/AccessDenied";
+                })
 
 
-                //.AddFacebook(facebookOptions =>
-                //{
-                //    facebookOptions.AppId = configuration["Authentication:Facebook:AppId"];
-                //    facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
-                //    facebookOptions.AccessDeniedPath = "/Home/AccessDenied";
-                //});
+                .AddFacebook(facebookOptions =>
+                {
+                    facebookOptions.AppId = configuration["Authentication:Facebook:AppId"];
+                    facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
+                    facebookOptions.AccessDeniedPath = "/Home/AccessDenied";
+                });
 
 
             var app = builder.Build();
