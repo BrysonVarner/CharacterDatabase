@@ -7,11 +7,12 @@
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:DefaultConnection"
     },
-    "secrets2": {
+    "secrets1": {
       "secretStore": null,
-      "resourceId": null,
-      "type": "secrets.user",
-      "connectionId": null
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/CharacterDatabasevault",
+      "type": "secrets.keyVault",
+      "connectionId": "VaultUri",
+      "dynamicId": null
     }
   }
 }

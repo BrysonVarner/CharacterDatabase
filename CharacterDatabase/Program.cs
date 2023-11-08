@@ -5,15 +5,27 @@ using CharacterDatabase.Services;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 
 namespace CharacterDatabase
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
             var configuration = builder.Configuration;
+
+            var keyVaultName = "CharacterDatabasevault";
+            var kvUri = $"https://{keyVaultName}.vault.azure.net";
+
+            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+
+            KeyVaultSecret fb_appId = await client.GetSecretAsync("Facebook-AppId");
+            KeyVaultSecret fb_appSecret = await client.GetSecretAsync("Facebook-AppSecret");
+            KeyVaultSecret g_clientId = await client.GetSecretAsync("Google-ClientId");
+            KeyVaultSecret g_clientSecret = await client.GetSecretAsync("Google-ClientSecret");
 
             builder.Services.AddTransient<IDbConnection>((s) =>
             {
@@ -53,16 +65,16 @@ namespace CharacterDatabase
 
                 .AddGoogle(googleOptions =>
                 {
-                    googleOptions.ClientId = configuration["Google-ClientId"];
-                    googleOptions.ClientSecret = configuration["Google-ClientSecret"];
+                    googleOptions.ClientId = g_clientId.ToString();
+                    googleOptions.ClientSecret = g_clientSecret.ToString();
                     googleOptions.AccessDeniedPath = "/Home/AccessDenied";
                 })
 
 
                 .AddFacebook(facebookOptions =>
                 {
-                    facebookOptions.AppId = configuration["Facebook-AppId"];
-                    facebookOptions.AppSecret = configuration["Facebook-AppSecret"];
+                    facebookOptions.AppId = fb_appId.ToString();
+                    facebookOptions.AppSecret = fb_appSecret.ToString();
                     facebookOptions.AccessDeniedPath = "/Home/AccessDenied";
                 });
 
