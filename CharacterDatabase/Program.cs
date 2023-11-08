@@ -53,16 +53,16 @@ namespace CharacterDatabase
 
                 .AddGoogle(googleOptions =>
                 {
-                    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
-                    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+                    googleOptions.ClientId = configuration["Google-ClientId"];
+                    googleOptions.ClientSecret = configuration["Google-ClientSecret"];
                     googleOptions.AccessDeniedPath = "/Home/AccessDenied";
                 })
 
 
                 .AddFacebook(facebookOptions =>
                 {
-                    facebookOptions.AppId = configuration["Authentication:Facebook:AppId"];
-                    facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
+                    facebookOptions.AppId = configuration["Facebook-AppId"];
+                    facebookOptions.AppSecret = configuration["Facebook-AppSecret"];
                     facebookOptions.AccessDeniedPath = "/Home/AccessDenied";
                 });
 
