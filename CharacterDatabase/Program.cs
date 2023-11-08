@@ -49,7 +49,7 @@ namespace CharacterDatabase
             builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
                 o.TokenLifespan = TimeSpan.FromHours(4));
 
-            builder.Services.AddAuthentication()
+            builder.Services.AddAuthentication();
 
                 //.AddGoogle(googleOptions =>
                 //{
