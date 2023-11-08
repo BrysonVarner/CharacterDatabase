@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Data;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using System.Net;
 
 namespace CharacterDatabase
 {
@@ -78,6 +79,7 @@ namespace CharacterDatabase
                     facebookOptions.AccessDeniedPath = "/Home/AccessDenied";
                 });
 
+                        
 
             var app = builder.Build();
 
@@ -105,13 +107,9 @@ namespace CharacterDatabase
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-                endpoints.MapControllers();
-            });
-
+                        
+            app.MapControllers();
+            
             app.Run();
         }
     }
