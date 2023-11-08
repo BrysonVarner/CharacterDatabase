@@ -93,6 +93,12 @@ namespace CharacterDatabase
                 app.UseHsts();
             }
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+                endpoints.MapControllers();
+            });
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
