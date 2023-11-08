@@ -17,16 +17,7 @@ namespace CharacterDatabase
         {
             var builder = WebApplication.CreateBuilder(args);
             var configuration = builder.Configuration;
-
-            var keyVaultName = "CharacterDatabasevault";
-            var kvUri = $"https://{keyVaultName}.vault.azure.net";
-
-            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
-
-            KeyVaultSecret fb_appId = await client.GetSecretAsync("Facebook-AppId");
-            KeyVaultSecret fb_appSecret = await client.GetSecretAsync("Facebook-AppSecret");
-            KeyVaultSecret g_clientId = await client.GetSecretAsync("Google-ClientId");
-            KeyVaultSecret g_clientSecret = await client.GetSecretAsync("Google-ClientSecret");
+                       
 
             builder.Services.AddTransient<IDbConnection>((s) =>
             {
@@ -66,20 +57,20 @@ namespace CharacterDatabase
 
                 .AddGoogle(googleOptions =>
                 {
-                    googleOptions.ClientId = g_clientId.ToString();
-                    googleOptions.ClientSecret = g_clientSecret.ToString();
+                    googleOptions.ClientId = configuration["Google_ClientId"];
+                    googleOptions.ClientSecret = configuration["Google_ClientSecret"];
                     googleOptions.AccessDeniedPath = "/Home/AccessDenied";
                 })
 
 
                 .AddFacebook(facebookOptions =>
                 {
-                    facebookOptions.AppId = fb_appId.ToString();
-                    facebookOptions.AppSecret = fb_appSecret.ToString();
+                    facebookOptions.AppId = configuration["Facebook_AppId"];
+                    facebookOptions.AppSecret = configuration["Facebook_AppSecret"];
                     facebookOptions.AccessDeniedPath = "/Home/AccessDenied";
                 });
 
-                        
+
 
             var app = builder.Build();
 
