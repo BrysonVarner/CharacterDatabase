@@ -6,6 +6,10 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/characterstorage-server/databases/characterstorage-db",
       "type": "mssql.azure",
       "connectionId": "DefaultConnection"
+    },
+    "secrets1": {
+      "type": "secrets.user",
+      "dynamicId": null
     }
   }
 }
